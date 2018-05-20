@@ -14,7 +14,7 @@ pipeline {
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t bhargava1/devops:secound_app.'
+        sh 'docker build -t bhargava1/devops:secound_app .'
       }
     }
     stage('Docker Push') {
