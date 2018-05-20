@@ -1,5 +1,5 @@
-pipeline {
-    agent { label 'slave1' }
+node {
+    docker.image('maven:3-alpine').inside {
 
     stages {
         stage ('Compile Stage') {
@@ -8,6 +8,7 @@ pipeline {
                     sh 'mvn clean compile'
                   }
         }
+        
 
         stage ('Testing Stage') {
 
@@ -22,5 +23,6 @@ pipeline {
                     sh 'echo "finished"'
                }
         }
+     }
     }
 }
