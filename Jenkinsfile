@@ -14,7 +14,7 @@ pipeline {
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t bhargava415/devops:secound_app.'
+        sh 'docker build -t bhargava1/devops:secound_app.'
       }
     }
     stage('Docker Push') {
@@ -22,7 +22,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh 'docker push bhargava415/devops:secound_app'
+          sh 'docker push bhargava1/devops:secound_app'
         }
       }
     }
